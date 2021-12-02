@@ -13,7 +13,7 @@ fn main() {
         .map(str::parse::<i32>)
         .map(Result::unwrap)
         .tuple_windows()
-        .map(|(a, b, c)| { a + b + c })
+        .map(|(a, b, c)| a + b + c)
         .tuple_windows()
         .map(|(a, b)| match b.cmp(&a) {
             Ordering::Less => Progression::Decreased,
