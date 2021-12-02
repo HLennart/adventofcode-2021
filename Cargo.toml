@@ -13,6 +13,13 @@ path = "src/01/1-1.rs"
 name = "1-2"
 path = "src/01/1-2.rs"
 
+[[bin]]
+name = "2-1"
+path = "src/02/2-1.rs"
+
+[[bin]]
+name = "2-2"
+path = "src/02/2-2.rs"
 
 [dependencies]
 itertools = "0.10.1"
