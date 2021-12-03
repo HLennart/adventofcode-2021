@@ -5,31 +5,32 @@ struct Position {
     aim: isize,
 }
 
-fn main () {
-    let pos = INPUT.split('\n').fold(Position { horizontal: 0, depth: 0, aim: 0}, |acc, line| {        
-        match line.split_once(' ').unwrap() {
-            (command, x)  if command == "up" => 
-                Position {
-                    horizontal: acc.horizontal,
-                    depth: acc.depth,
-                    aim: acc.aim - x.parse::<isize>().unwrap(),
-                
+fn main() {
+    let pos = INPUT.split('\n').fold(
+        Position {
+            horizontal: 0,
+            depth: 0,
+            aim: 0,
+        },
+        |acc, line| match line.split_once(' ').unwrap() {
+            (command, x) if command == "up" => Position {
+                horizontal: acc.horizontal,
+                depth: acc.depth,
+                aim: acc.aim - x.parse::<isize>().unwrap(),
             },
-            (command, x) if command == "down" => 
-                Position {
-                    horizontal: acc.horizontal,
-                    depth: acc.depth,
-                    aim: acc.aim + x.parse::<isize>().unwrap()
-                
+            (command, x) if command == "down" => Position {
+                horizontal: acc.horizontal,
+                depth: acc.depth,
+                aim: acc.aim + x.parse::<isize>().unwrap(),
             },
             (command, x) if command == "forward" => Position {
                 horizontal: acc.horizontal + x.parse::<isize>().unwrap(),
                 depth: acc.depth + acc.aim * x.parse::<isize>().unwrap(),
-                aim: acc.aim
+                aim: acc.aim,
             },
-            _ => panic!("failed to process line '{}'", line)
-        }
-    });
+            _ => panic!("failed to process line '{}'", line),
+        },
+    );
 
     println!("final position: {:#?}", &pos);
     println!("2-1 result: {}", pos.horizontal * pos.depth);

@@ -4,28 +4,28 @@ struct Position {
     depth: isize,
 }
 
-fn main () {
-    let pos = INPUT.split('\n').fold(Position { horizontal: 0, depth: 0}, |acc, line| {        
-        match line.split_once(' ').unwrap() {
-            (command, x)  if command == "up" => 
-                Position {
-                    horizontal: acc.horizontal,
-                    depth: acc.depth - x.parse::<isize>().unwrap(),
-                
+fn main() {
+    let pos = INPUT.split('\n').fold(
+        Position {
+            horizontal: 0,
+            depth: 0,
+        },
+        |acc, line| match line.split_once(' ').unwrap() {
+            (command, x) if command == "up" => Position {
+                horizontal: acc.horizontal,
+                depth: acc.depth - x.parse::<isize>().unwrap(),
             },
-            (command, x) if command == "down" => 
-                Position {
-                    horizontal: acc.horizontal,
-                    depth: acc.depth + x.parse::<isize>().unwrap(),
-                
+            (command, x) if command == "down" => Position {
+                horizontal: acc.horizontal,
+                depth: acc.depth + x.parse::<isize>().unwrap(),
             },
             (command, x) if command == "forward" => Position {
                 horizontal: acc.horizontal + x.parse::<isize>().unwrap(),
-                depth: acc.depth
+                depth: acc.depth,
             },
-            _ => panic!("failed to process line '{}'", line)
-        }
-    });
+            _ => panic!("failed to process line '{}'", line),
+        },
+    );
 
     println!("final position: {:#?}", &pos);
     println!("2-1 result: {}", pos.horizontal * pos.depth);
