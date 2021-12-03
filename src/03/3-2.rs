@@ -9,16 +9,6 @@ fn main() {
         .map(|line| line.chars().collect::<Vec<_>>())
         .collect::<Vec<Vec<_>>>();
 
-    let number_of_characters = input[0].len();
-    let number_of_lines = input.len();
-
-    let oxygen_generator_rating = 0u32;
-    let co2_scrubber_rating = 0u32;
-
-    let mut maybe_oxygen = input.clone();
-    let mut maybe_co2 = input.clone();
-
-    println!("{:#?}", maybe_oxygen);
 
     let oxygen = do_bit_criteria(input.clone(), '1', Rating::Oxygen);
     let co2 = do_bit_criteria(input, '0', Rating::Co2);
@@ -75,26 +65,6 @@ fn do_bit_criteria(mut input: Vec<Vec<char>>, most_common: char, rating: Rating)
                         .collect::<Vec<Vec<_>>>(),
                 },
             };
-
-            // if number_of_most_common > input.len() - number_of_most_common {
-            //     input = input
-            //         .iter()
-            //         .filter(|row| row[index] == most_common)
-            //         .cloned()
-            //         .collect::<Vec<Vec<_>>>();
-            // } else if number_of_most_common < input.len() - number_of_most_common {
-            //     input = input
-            //         .iter()
-            //         .filter(|row| row[index] == the_other)
-            //         .cloned()
-            //         .collect::<Vec<Vec<_>>>();
-            // } else {
-            //     input = input
-            //         .iter()
-            //         .filter(|row| row[index] == most_common)
-            //         .cloned()
-            //         .collect::<Vec<Vec<_>>>();
-            // }
         }
     });
 
