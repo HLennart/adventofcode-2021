@@ -36,6 +36,7 @@ fn main() {
     println!("2-1 result: {}", pos.horizontal * pos.depth);
 }
 
+#[allow(dead_code)]
 const TEST_INPUT: &str = "forward 5
 down 5
 forward 8

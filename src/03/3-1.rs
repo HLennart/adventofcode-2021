@@ -27,6 +27,7 @@ fn main() {
     println!("resulting power consumption: {}", gamma_rate * epsilon_rate);
 }
 
+#[allow(dead_code)]
 const TEST_INPUT: &str = "00100
 11110
 10110

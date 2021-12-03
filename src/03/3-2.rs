@@ -82,6 +82,7 @@ fn do_bit_criteria(mut input: Vec<Vec<char>>, most_common: char, rating: Rating)
     }
 }
 
+#[allow(dead_code)]
 const TEST_INPUT: &str = "00100
 11110
 10110
