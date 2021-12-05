@@ -9,7 +9,6 @@ fn main() {
         .map(|line| line.chars().collect::<Vec<_>>())
         .collect::<Vec<Vec<_>>>();
 
-
     let oxygen = do_bit_criteria(input.clone(), '1', Rating::Oxygen);
     let co2 = do_bit_criteria(input, '0', Rating::Co2);
 
